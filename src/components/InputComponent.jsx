@@ -1,9 +1,7 @@
 import { faCircleCheck, faTimesCircle } from "@fortawesome/free-solid-svg-icons"
-import { GrupoInput, IconoValidacion, Input, Label, LeyendaError } from "../elementos/Forms"
-import React from 'react';
 
 
-const InputComponent = ({ estado, setEstado, tipo, label, placeholder, name, leyendaError, expresionRegular, funcion }: InputComp) => {
+const InputComponent = ({ estado, setEstado, tipo, placeholder, name, leyendaError, expresionRegular, funcion }) => {
     const handlesetEstado = (e) => {
         setEstado({ ...estado, campo: e.target.value });
 
@@ -29,25 +27,29 @@ const InputComponent = ({ estado, setEstado, tipo, label, placeholder, name, ley
 
     };
 
+
     return (
         <div>
-            <Label htmlfor={name} valido={estado.valido}>{label}</Label>
+            <input 
+                type={tipo}
+                placeholder={placeholder}
+                id={name}
+                value={estado.campo}
+                onChange={handlesetEstado}
+                onKeyUp={handleValidacion}
+                onBlur={handleOnBlur}
+                valido={estado.valido}
+                className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+            />
+              
+            {/* <Label htmlfor={name} valido={estado.valido}>{label}</Label>
             <GrupoInput>
-                <Input
-                    type={tipo}
-                    placeholder={placeholder}
-                    id={name}
-                    value={estado.campo}
-                    onChange={handlesetEstado}
-                    onKeyUp={handleValidacion}
-                    onBlur={handleOnBlur}
-                    valido={estado.valido}
-                />
+                
                 <IconoValidacion
                     icon={estado.valido === 'true' ? faCircleCheck : faTimesCircle}
                     valido={estado.valido} />
             </GrupoInput>
-            <LeyendaError valido={estado.valido}>{leyendaError}</LeyendaError>
+            <LeyendaError valido={estado.valido}>{leyendaError}</LeyendaError> */}
         </div>
     )
 }
