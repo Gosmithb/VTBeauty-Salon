@@ -26,11 +26,13 @@ const Registrarse = () => {
     if (password.campo.length > 0) {
       if (password.campo !== password2.campo) {
         setPassword2((prevState) => {
+          console.log('Es diferente');
           return { ...prevState, valido: 'false' };
         });
 
       } else {
         setPassword2((prevState) => {
+          console.log('Es igual');
           return ({ ...prevState, valido: 'true' });
         });
       }
@@ -91,7 +93,7 @@ const Registrarse = () => {
                   name="usuario"
                   leyendaError="El usuario tiene que ser de 4 a 16 digitos, letras y guion bajo"
                   expresionRegular={expresiones.usuario}
-                  propiedades="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                  
                 />
               </div>
 
@@ -105,7 +107,7 @@ const Registrarse = () => {
                   name="nombre"
                   leyendaError="Nombre invalido"
                   expresionRegular={expresiones.nombre}
-                  propiedades="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                  
                 />
               </div>
 
@@ -115,11 +117,11 @@ const Registrarse = () => {
                   estado={telefono}
                   setEstado={setTelefono}
                   tipo="text"
-                  placeholder="Usuario"
-                  name="usuario"
+                  placeholder="Telefono"
+                  name="telefono"
                   leyendaError="Numero Invalido"
                   expresionRegular={expresiones.telefono}
-                  propiedades="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                  
                 />
               </div>
 
@@ -129,11 +131,11 @@ const Registrarse = () => {
                   estado={correo}
                   setEstado={setCorreo}
                   tipo="text"
-                  placeholder="Usuario"
-                  name="usuario"
+                  placeholder="Correo"
+                  name="correo"
                   leyendaError="Formato invalido"
                   expresionRegular={expresiones.correo}
-                  propiedades="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                  
                 />
               </div>
 
@@ -142,12 +144,12 @@ const Registrarse = () => {
                 <InputComponent
                   estado={password}
                   setEstado={setPassword}
-                  tipo="text"
-                  placeholder="Usuario"
-                  name="usuario"
+                  tipo="password"
+                  placeholder="Contraseña"
+                  name="password"
                   leyendaError="Contraseña no valida"
                   expresionRegular={expresiones.password}
-                  propiedades="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                  
                 />
               </div>
 
@@ -156,12 +158,12 @@ const Registrarse = () => {
                 <InputComponent
                   estado={password2}
                   setEstado={setPassword2}
-                  tipo="text"
-                  placeholder="Usuario"
-                  name="usuario"
+                  tipo="password"
+                  placeholder="Confirmar contraseña"
+                  name="password2"
                   leyendaError="Contraseña incorrecta diferente"
-                  expresionRegular={validarPassword2}
-                  propiedades="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                  funcion={validarPassword2}
+                  
                 />
               </div>
 
@@ -169,7 +171,7 @@ const Registrarse = () => {
 
 
               <div className="mt-7">
-                <button className="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                <button type="submit" className="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
                   Registrar
                 </button>
               </div>

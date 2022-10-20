@@ -1,4 +1,5 @@
 import { faCircleCheck, faTimesCircle } from "@fortawesome/free-solid-svg-icons"
+import React from "react";
 
 
 const InputComponent = ({ estado, setEstado, tipo, placeholder, name, leyendaError, expresionRegular, funcion }) => {
@@ -41,14 +42,10 @@ const InputComponent = ({ estado, setEstado, tipo, placeholder, name, leyendaErr
                 valido={estado.valido}
                 className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
             />
-              
-            {/* <Label htmlfor={name} valido={estado.valido}>{label}</Label>
-            <GrupoInput>
-                
-                <IconoValidacion
+            {/*<label htmlfor={name} valido={estado.valido}>{label}</label> */}
+                {/* <IconoValidacion
                     icon={estado.valido === 'true' ? faCircleCheck : faTimesCircle}
                     valido={estado.valido} />
-            </GrupoInput>
             <LeyendaError valido={estado.valido}>{leyendaError}</LeyendaError> */}
         </div>
     )
