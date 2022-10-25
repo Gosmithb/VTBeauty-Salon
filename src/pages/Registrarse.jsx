@@ -75,9 +75,9 @@ const Registrarse = () => {
 
   return (
     <div className="font-sans">
-      <div className="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 ">
+      <div className="relative min-h-screen flex flex-col sm:justify-center items-center ">
         <div className="relative sm:max-w-sm w-full">
-          <div className="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
+          <div className="relative w-full rounded-3xl  px-6 py-4 bg-gray-50 my-3 shadow-md">
             <label className="block mt-3 text-sm text-gray-700 text-center font-semibold">
               Registrate
             </label>
