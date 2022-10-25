@@ -3,20 +3,20 @@ const RegistroCita = () => {
   return (
     <div class="flex items-center justify-center p-12">
       <div class="mx-auto w-full max-w-[550px]">
-        <form action="https://formbold.com/s/FORM_ID" method="POST">
+        <form action="" method="POST">
           <div class="-mx-3 flex flex-wrap">
             <div class="w-full px-3 sm:w-1/2">
               <div class="mb-5">
                 <label
                   for="fName"
                   class="mb-3 block text-base font-medium text-[#07074D]">
-                  First Name
+                  Nombre
                 </label>
                 <input
                   type="text"
                   name="fName"
                   id="fName"
-                  placeholder="First Name"
+                  placeholder="Nombre"
                   class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                 />
               </div>
@@ -26,13 +26,13 @@ const RegistroCita = () => {
                 <label
                   for="lName"
                   class="mb-3 block text-base font-medium text-[#07074D]">
-                  Last Name
+                  Apellidos
                 </label>
                 <input
                   type="text"
                   name="lName"
                   id="lName"
-                  placeholder="Last Name"
+                  placeholder="Apellidos"
                   class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                 />
               </div>
@@ -42,16 +42,23 @@ const RegistroCita = () => {
             <label
               for="guest"
               class="mb-3 block text-base font-medium text-[#07074D]">
-              How many guest are you bringing?
+              Servicio Requerido
             </label>
-            <input
-              type="number"
-              name="guest"
-              id="guest"
-              placeholder="5"
-              min="0"
-              class="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-            />
+            <div class="w-full md:w-1/3 px-3">
+              <div class="relative">
+                <select class="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" id="grid-state">
+                  <option>Seleccione un servicio...</option>
+                  <option>Corte de cabello</option>
+                  <option>Pintura de cabello</option>
+                  <option>Manicura</option>
+                  <option>Pedicura</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4"  viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+              </div>
+            </div>
+
           </div>
 
           <div class="-mx-3 flex flex-wrap">
@@ -60,7 +67,7 @@ const RegistroCita = () => {
                 <label
                   for="date"
                   class="mb-3 block text-base font-medium text-[#07074D]">
-                  Date
+                  Fecha
                 </label>
                 <input
                   type="date"
@@ -75,7 +82,7 @@ const RegistroCita = () => {
                 <label
                   for="time"
                   class="mb-3 block text-base font-medium text-[#07074D]">
-                  Time
+                  Hora
                 </label>
                 <input
                   type="time"
@@ -87,44 +94,10 @@ const RegistroCita = () => {
             </div>
           </div>
 
-          <div class="mb-5">
-            <label class="mb-3 block text-base font-medium text-[#07074D]">
-              Are you coming to the event?
-            </label>
-            <div class="flex items-center space-x-6">
-              <div class="flex items-center">
-                <input
-                  type="radio"
-                  name="radio1"
-                  id="radioButton1"
-                  class="h-5 w-5"
-                />
-                <label
-                  for="radioButton1"
-                  class="pl-3 text-base font-medium text-[#07074D]">
-                  Yes
-                </label>
-              </div>
-              <div class="flex items-center">
-                <input
-                  type="radio"
-                  name="radio1"
-                  id="radioButton2"
-                  class="h-5 w-5"
-                />
-                <label
-                  for="radioButton2"
-                  class="pl-3 text-base font-medium text-[#07074D]">
-                  No
-                </label>
-              </div>
-            </div>
-          </div>
-
           <div>
             <button
               class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
-              Submit
+              Crear cita
             </button>
           </div>
         </form>
