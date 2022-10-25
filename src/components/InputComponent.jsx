@@ -1,4 +1,4 @@
-import { faCircleCheck, faTimesCircle } from "@fortawesome/free-solid-svg-icons"
+import { faCircleCheck, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 
 
@@ -31,7 +31,7 @@ const InputComponent = ({ estado, setEstado, tipo, placeholder, name, leyendaErr
 
     return (
         <div>
-            <input 
+            <input
                 type={tipo}
                 placeholder={placeholder}
                 id={name}
@@ -42,11 +42,19 @@ const InputComponent = ({ estado, setEstado, tipo, placeholder, name, leyendaErr
                 valido={estado.valido}
                 className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
             />
-            {/*<label htmlfor={name} valido={estado.valido}>{label}</label> */}
-                {/* <IconoValidacion
-                    icon={estado.valido === 'true' ? faCircleCheck : faTimesCircle}
-                    valido={estado.valido} />
-            <LeyendaError valido={estado.valido}>{leyendaError}</LeyendaError> */}
+            {/* Falta icono de validacion en labels */}
+            {/* <label
+                icon={estado.valido === 'true' ? faCircleCheck : faTimesCircle}
+                valido={estado.valido}>
+            </label> */}
+            {/*
+            position: absolute;
+            right: 10px;
+            bottom: 14px;
+            z-index: 100;
+            font-size: 16px;
+            opacity: 0; */}
+            {/* <LeyendaError valido={estado.valido}>{leyendaError}</LeyendaError> */}
         </div>
     )
 }
