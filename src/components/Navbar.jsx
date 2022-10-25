@@ -4,7 +4,6 @@ import {
   ArrowPathIcon,
   Bars3Icon,
   BookmarkSquareIcon,
-  CalendarIcon,
   ChartBarIcon,
   CursorArrowRaysIcon,
   LifebuoyIcon,
@@ -66,11 +65,6 @@ const resources = [
     icon: ShieldCheckIcon
   }
 ]
-// const recentPosts = [
-//   { id: 1, name: 'Boost your conversion rate', href: '#' },
-//   { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
-//   { id: 3, name: 'Improve your customer experience', href: '#' },
-// ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -97,7 +91,7 @@ export default function Navbar() {
               </Popover.Button>
             </div>
             <Popover.Group as="nav" className="hidden space-x-10 md:flex">
-              <Link to='/home' className="text-base font-medium text-gray-500 hover:text-gray-900">
+              <Link to='/' className="text-base font-medium text-gray-500 hover:text-gray-900">
                 Inicio
               </Link>
               <Link to='/registrocita' className="text-base font-medium text-gray-500 hover:text-gray-900">
@@ -109,7 +103,7 @@ export default function Navbar() {
               <Link to='/productos' className="text-base font-medium text-gray-500 hover:text-gray-900">
                 Productos
               </Link>
-              <Link to='/home' className="text-base font-medium text-gray-500 hover:text-gray-900">
+              <Link to='/' className="text-base font-medium text-gray-500 hover:text-gray-900">
                 Tienda
               </Link>
 
