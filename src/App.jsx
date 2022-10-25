@@ -12,11 +12,11 @@ import Servicios from "./pages/Servicios";
 const App = () => {
   return (
     <Routes>
-      <Route path='/home' element={<Home />} />
+      <Route path='/' element={<Home />} />
       <Route path='/registrocita' element={<RegistroCita />} />
       <Route path='/servicios' element={<Servicios />} />
       <Route path='/productos' element={<Productos />} />
-      <Route path='/home' element={<Home />} />
+      <Route path='/' element={<Home />} />
       <Route path='/ayuda' element={<Ayuda />} />
       <Route path='/guia' element={<Guia />} />
       <Route path='/guia' element={<Guia />} />
