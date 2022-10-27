@@ -23,11 +23,11 @@ const RegistroCita = () => {
             </div>
             <div className="w-full px-3 sm:w-1/2">
               <div className="mb-5">
-                <label
+                <labelg
                   htmlFor="lName"
                   className="mb-3 block text-base font-medium text-[#07074D]">
                   Apellidos
-                </label>
+                </labelg>
                 <input
                   type="text"
                   name="lName"
