@@ -1,25 +1,25 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {} from '';
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP-FIREBASE_APIKEY,
-  authDomain: process.env.REACT_APP-FIREBASE_AUTHDOMAIN,
-  projectId: process.env.REACT_APP-FIREBASE_PROJECTID,
-  storageBucket: process.env.REACT_APP-FIREBASE_STORAGEBUCKET,
-  messagingSenderId: process.env.REACT_APP-FIREBASE_MESSAGINGSENDERID,
-  appId: process.env.REACT_APP-FIREBASE_APPID,
-  measurementId: process.env.REACT_APP-FIREBASE_MEASUREMENTID
+  apiKey: "AIzaSyBFd_nIvE4jqaOQpVuAwBV72XKm1Zy9MeA",
+  authDomain: "vtbeauty-salon.firebaseapp.com",
+  projectId: "vtbeauty-salon",
+  storageBucket: "vtbeauty-salon.appspot.com",
+  messagingSenderId: "38258368566",
+  appId: "1:38258368566:web:0a780ebe36aa99dff8b897",
+  measurementId: "G-R7EKYRYYE7"
 };
 
 // Initialize Firebase}
 const app = initializeApp(firebaseConfig);
 
-const db = getFirestore();
+export const db = getFirestore(app);
 
-export const saveUser = () => {
-  addDoc
-}
+// export const saveUser = () => {
+  
+// }
 
 
 
