@@ -1,20 +1,20 @@
 import { faCircleCheck, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
-
 
 const InputComponent = ({ estado, setEstado, tipo, placeholder, name, leyendaError, expresionRegular, funcion }) => {
     const handlesetEstado = (e) => {
         setEstado({ ...estado, campo: e.target.value });
-
+        console.log('entra a estado');
     };
 
     const handleValidacion = () => {
         if (expresionRegular) {
+            console.log('Si entra a validacion');
             if (expresionRegular.test(estado.campo)) {
                 setEstado({ ...estado, valido: 'true' });
-
+                console.log('Valido en true');
             } else {
                 setEstado({ ...estado, valido: 'false' });
+                console.log('Valido en false');
             }
         }
 
@@ -54,7 +54,7 @@ const InputComponent = ({ estado, setEstado, tipo, placeholder, name, leyendaErr
             z-index: 100;
             font-size: 16px;
             opacity: 0; */}
-            {/* <LeyendaError valido={estado.valido}>{leyendaError}</LeyendaError> */}
+            <p valido={estado.valido}>{leyendaError}</p>
         </div>
     )
 }

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import InputComponent from "../components/InputComponent";
+import {db} from '../firebase/firebase';
+import { collection, addDoc } from "firebase/firestore"; 
 
 const Registrarse = () => {
 
@@ -10,7 +12,6 @@ const Registrarse = () => {
   const [password2, setPassword2] = useState({ campo: '', valido: 'null' });
   const [correo, setCorreo] = useState({ campo: '', valido: 'null' });
   const [telefono, setTelefono] = useState({ campo: '', valido: 'null' });
-  const [terminos, setTerminos] = useState(false);
   const [formularioValido, setFormularioValido] = useState('');
 
 
@@ -43,28 +44,32 @@ const Registrarse = () => {
     e.preventDefault();
 
     setFormularioValido('');
-    if (usuario.valido === 'true' && nombre.valido === 'true' && password.valido === 'true' && password2.valido === 'true' && correo.valido === 'true' && terminos && telefono.valido === 'true') {
+    if (usuario.valido === 'true' && nombre.valido === 'true' && password.valido === 'true' && password2.valido === 'true' && correo.valido === 'true' && telefono.valido === 'true') {
       setFormularioValido('true');
-      //Se actualiza usuario en base de datos
-      // addDoc(collection(db, 'usuarios'), {
-      //   usuario: usuario.campo,
-      //   nombre: nombre.campo,
-      //   password: password.campo,
-      //   correo: correo.campo,
-      //   telefono: telefono.campo
-      // });
+      if (formularioValido === 'true') {
+        addDoc(collection(db, 'usuarios'), {
+          usuario: usuario.campo,
+          nombre: nombre.campo,
+          password: password.campo,
+          correo: correo.campo,
+          telefono: telefono.campo
+        });
+        console.log('Se supone que el usuario se subio');
 
-      //Limpiar campos despues de actualizar tabla
-      setUsuario({ campo: '', valido: 'null' })
-      setNombre({ campo: '', valido: 'null' })
-      setPassword({ campo: '', valido: 'null' })
-      setPassword2({ campo: '', valido: 'null' })
-      setCorreo({ campo: '', valido: 'null' })
-      setTelefono({ campo: '', valido: 'null' })
-      setTerminos(false)
+        //Limpiar campos despues de actualizar tabla
+        setUsuario({ campo: '', valido: 'null' });
+        setNombre({ campo: '', valido: 'null' });
+        setPassword({ campo: '', valido: 'null' });
+        setPassword2({ campo: '', valido: 'null' });
+        setCorreo({ campo: '', valido: 'null' });
+        setTelefono({ campo: '', valido: 'null' });
+      }
+
+
 
     } else {
       setFormularioValido('false');
+      console.log('setFormulario false');
     }
   }
 
@@ -93,7 +98,7 @@ const Registrarse = () => {
                   name="usuario"
                   leyendaError="El usuario tiene que ser de 4 a 16 digitos, letras y guion bajo"
                   expresionRegular={expresiones.usuario}
-                  
+
                 />
               </div>
 
@@ -107,7 +112,7 @@ const Registrarse = () => {
                   name="nombre"
                   leyendaError="Nombre invalido"
                   expresionRegular={expresiones.nombre}
-                  
+
                 />
               </div>
 
@@ -121,7 +126,7 @@ const Registrarse = () => {
                   name="telefono"
                   leyendaError="Numero Invalido"
                   expresionRegular={expresiones.telefono}
-                  
+
                 />
               </div>
 
@@ -135,7 +140,7 @@ const Registrarse = () => {
                   name="correo"
                   leyendaError="Formato invalido"
                   expresionRegular={expresiones.correo}
-                  
+
                 />
               </div>
 
@@ -149,7 +154,7 @@ const Registrarse = () => {
                   name="password"
                   leyendaError="Contraseña no valida"
                   expresionRegular={expresiones.password}
-                  
+
                 />
               </div>
 
@@ -163,7 +168,7 @@ const Registrarse = () => {
                   name="password2"
                   leyendaError="Contraseña incorrecta diferente"
                   funcion={validarPassword2}
-                  
+
                 />
               </div>
 
