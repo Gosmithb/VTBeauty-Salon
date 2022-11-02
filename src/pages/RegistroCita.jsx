@@ -26,11 +26,11 @@ const RegistroCita = () => {
             </div>
             <div className="w-full px-3 sm:w-1/2">
               <div className="mb-5">
-                <labelg
+                <label
                   htmlFor="lName"
                   className="mb-3 block text-base font-medium text-[#07074D]">
                   Apellidos
-                </labelg>
+                </label>
                 <input
                   type="text"
                   name="lName"
@@ -48,9 +48,9 @@ const RegistroCita = () => {
               className="mb-3 block text-base font-medium text-[#07074D]">
               Servicio Requerido
             </label>
-            <div class="max-w-2xl mx-auto">
-                <select id="services" class="rounded-md border border-[#e0e0e0] font-medium text-[#6B7280] font-medium text-base rounded-lg block w-full py-3 px-6 focus:border-[#6A64F1]">
-                <option selected>Selecciona un servicio...</option>
+            <div className="max-w-2xl mx-auto">
+                <select id="services" className="rounded-md border border-[#e0e0e0] font-medium text-[#6B7280] font-medium text-base rounded-lg block w-full py-3 px-6 focus:border-[#6A64F1]">
+                <option defaultValue={'default'}>Selecciona un servicio...</option>
                 <option value="CDC">Corte de cabello</option>
                 <option value="PDC">Pintura de cabello</option>
                 <option value="MA">Manicura</option>
