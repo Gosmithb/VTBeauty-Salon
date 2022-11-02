@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import InputComponent from "../components/InputComponent";
-import {db} from '../firebase/firebase';
-import { collection, addDoc } from "firebase/firestore"; 
+import { db } from '../firebase/firebase';
+import { collection, addDoc } from "firebase/firestore";
 
 const Registrarse = () => {
 
@@ -42,7 +42,7 @@ const Registrarse = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
+    console.log('llega');
     setFormularioValido('');
     if (usuario.valido === 'true' && nombre.valido === 'true' && password.valido === 'true' && password2.valido === 'true' && correo.valido === 'true' && telefono.valido === 'true') {
       setFormularioValido('true');
@@ -71,6 +71,7 @@ const Registrarse = () => {
       setFormularioValido('false');
       console.log('setFormulario false');
     }
+
   }
 
 
@@ -80,6 +81,16 @@ const Registrarse = () => {
 
   return (
     <div className="font-sans">
+      
+      {/* {formularioValido === 'true' &&
+        <div id="top-left-modal" data-modal-placement="top-left" tabIndex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
+          <div className='flex flex-row bg-gray-900 h-10 w-[400px] rounded-[30px]'>
+            <span className='flex flex-col justify-center text-white font-bold grow-[1] max-w-[90%] text-center'>Usuario registrado con exito</span>
+            <div className='w-[10%] bg-green-400 rounded-r-2xl shadow-[0_0_20px_#00C85177]'></div>
+          </div>
+        </div>
+      } */}
+
       <div className="relative min-h-screen flex flex-col sm:justify-center items-center ">
         <div className="relative sm:max-w-sm w-full">
           <div className="relative w-full rounded-3xl  px-6 py-4 bg-gray-50 my-3 shadow-md">
@@ -87,7 +98,6 @@ const Registrarse = () => {
               Registrate
             </label>
             <form className="mt-10" onSubmit={onSubmit}>
-
               {/* Usuario */}
               <div>
                 <InputComponent
@@ -110,7 +120,7 @@ const Registrarse = () => {
                   tipo="text"
                   placeholder="Nombre"
                   name="nombre"
-                  leyendaError="Nombre invalido"
+                  leyendaError="Nombre invalido, no debe contener caracteres especiales"
                   expresionRegular={expresiones.nombre}
 
                 />
@@ -138,7 +148,7 @@ const Registrarse = () => {
                   tipo="text"
                   placeholder="Correo"
                   name="correo"
-                  leyendaError="Formato invalido"
+                  leyendaError="Formato invalido: Example@example.com"
                   expresionRegular={expresiones.correo}
 
                 />
@@ -166,7 +176,7 @@ const Registrarse = () => {
                   tipo="password"
                   placeholder="Confirmar contraseña"
                   name="password2"
-                  leyendaError="Contraseña incorrecta diferente"
+                  leyendaError="Contraseña no coincide"
                   funcion={validarPassword2}
 
                 />
@@ -209,6 +219,7 @@ const Registrarse = () => {
                   </Link>
                 </div>
               </div>
+
             </form>
           </div>
         </div>
