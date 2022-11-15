@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom"
+import configRoute from "./configRoute"
 import Ayuda from "./pages/Ayuda";
 import Guia from "./pages/Guia";
 import Home from './pages/Home';
@@ -12,17 +13,13 @@ import Servicios from "./pages/Servicios";
 const App = () => {
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/registrocita' element={<RegistroCita />} />
-      <Route path='/servicios' element={<Servicios />} />
-      <Route path='/productos' element={<Productos />} />
-      <Route path='/' element={<Home />} />
-      <Route path='/ayuda' element={<Ayuda />} />
-      <Route path='/guia' element={<Guia />} />
-      <Route path='/guia' element={<Guia />} />
-      <Route path='/seguridad' element={<Seguridad />} />
-      <Route path='/iniciosesion' element={<InicioSesion />} />
-      <Route path='/registrarse' element={<Registrarse />} />
+      {configRoute.map((ruta, i) => (
+        <Route
+          key={i}
+          path={ruta.path}
+          element={<ruta.page />}
+        ></Route>
+      ))}
     </Routes>
   )
 }
