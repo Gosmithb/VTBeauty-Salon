@@ -40,7 +40,7 @@ const Registrarse = () => {
     }
   }
 
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log('llega');
     setFormularioValido('');
@@ -97,7 +97,7 @@ const Registrarse = () => {
             <label className="block mt-3 text-sm text-gray-700 text-center font-semibold">
               Registrate
             </label>
-            <form className="mt-10" onSubmit={onSubmit}>
+            <form className="mt-10" onSubmit={handleSubmit}>
               {/* Usuario */}
               <div>
                 <InputComponent
