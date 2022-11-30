@@ -42,8 +42,6 @@ const Registrarse = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('llega');
-    setFormularioValido('');
     if (usuario.valido === 'true' && nombre.valido === 'true' && password.valido === 'true' && password2.valido === 'true' && correo.valido === 'true' && telefono.valido === 'true') {
       setFormularioValido('true');
       if (formularioValido === 'true') {
@@ -71,6 +69,7 @@ const Registrarse = () => {
       setFormularioValido('false');
       console.log('setFormulario false');
     }
+    setFormularioValido('');
 
   }
 
@@ -107,7 +106,8 @@ const Registrarse = () => {
                   placeholder="Usuario"
                   name="usuario"
                   leyendaError="El usuario tiene que ser de 4 a 16 digitos, letras y guion bajo"
-                  expresionRegular={expresiones.usuario}
+                  expresionRegular={expresiones.usuario}  
+                  classProps="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
 
                 />
               </div>
@@ -122,6 +122,7 @@ const Registrarse = () => {
                   name="nombre"
                   leyendaError="Nombre invalido, no debe contener caracteres especiales"
                   expresionRegular={expresiones.nombre}
+                  classProps="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
 
                 />
               </div>
@@ -136,6 +137,7 @@ const Registrarse = () => {
                   name="telefono"
                   leyendaError="Numero Invalido"
                   expresionRegular={expresiones.telefono}
+                  classProps="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
 
                 />
               </div>
@@ -150,6 +152,7 @@ const Registrarse = () => {
                   name="correo"
                   leyendaError="Formato invalido: Example@example.com"
                   expresionRegular={expresiones.correo}
+                  classProps="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
 
                 />
               </div>
@@ -164,6 +167,7 @@ const Registrarse = () => {
                   name="password"
                   leyendaError="Contraseña no valida"
                   expresionRegular={expresiones.password}
+                  classProps="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
 
                 />
               </div>
@@ -178,6 +182,7 @@ const Registrarse = () => {
                   name="password2"
                   leyendaError="Contraseña no coincide"
                   funcion={validarPassword2}
+                  classProps="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
 
                 />
               </div>
