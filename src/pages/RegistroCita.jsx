@@ -41,13 +41,6 @@ const RegistroCita = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(nombre);
-    console.log(apellido);
-    console.log(servicio);
-    console.log(fecha);
-    console.log(hora);
-
-
     if (nombre.valido === 'true' && apellido.valido === 'true' && servicio.valido === 'true' && fecha.valido === 'true' && hora.valido === 'true') {
       addDoc(collection(db, 'citas'), {
         nombre: nombre.campo,
@@ -70,7 +63,6 @@ const RegistroCita = () => {
 
     } else {
       setFormularioValido('false');
-      console.log('setFormulario false');
     }
     setFormularioValido('');
 
