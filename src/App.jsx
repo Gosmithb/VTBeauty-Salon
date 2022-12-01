@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom"
 import configRoute from "./configRoute"
-
 import { ToastContainer } from 'react-toastify';
 
 const App = () => {

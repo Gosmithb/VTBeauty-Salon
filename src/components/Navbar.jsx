@@ -35,11 +35,6 @@ const solutions = [
     href: '/productos',
     icon: Squares2X2Icon,
   },
-  {
-    name: 'Tienda',
-    href: '/home',
-    icon: ArrowPathIcon,
-  },
 ]
 const callsToAction = [
   { name: 'Watch Demo', icon: PlayIcon },
@@ -102,9 +97,6 @@ export default function Navbar() {
               </Link>
               <Link to='/productos' className="text-base font-medium text-gray-500 hover:text-gray-900">
                 Productos
-              </Link>
-              <Link to='/' className="text-base font-medium text-gray-500 hover:text-gray-900">
-                Tienda
               </Link>
 
               <Popover className="relative">
