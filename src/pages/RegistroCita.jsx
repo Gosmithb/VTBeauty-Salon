@@ -1,5 +1,7 @@
+import "react-toastify/dist/ReactToastify.css";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from '../firebase/firebase';
+import { toast } from 'react-toastify';
 import { useState } from "react";
 import InputComponent from "../components/InputComponent";
 
@@ -9,7 +11,6 @@ const RegistroCita = () => {
   const [apellido, setApellido] = useState({ campo: '', valido: '' });
   const [fecha, setFecha] = useState({ campo: null, valido: '' });
   const [hora, setHora] = useState({ campo: null, valido: '' });
-  const [formularioValido, setFormularioValido] = useState('');
   const [servicio, setServicio] = useState({ campo: '', valido: '' });
 
   const serviciosDisponibles = [
@@ -49,7 +50,6 @@ const RegistroCita = () => {
         fecha: fecha.campo,
         hora: hora.campo
       });
-      console.log('Se supone que el usuario se subio');
 
       //Limpiar campos despues de actualizar tabla
       setNombre({ campo: '', valido: 'null' });
@@ -58,13 +58,16 @@ const RegistroCita = () => {
       setFecha({ campo: '', valido: 'null' });
       setHora({ campo: '', valido: 'null' });
 
-
+      toast.success("Cita creada con exito!", {
+        position: toast.POSITION.TOP_CENTER
+      });
 
 
     } else {
-      setFormularioValido('false');
+      toast.error("Favor de llenar correctamente todos los campos", {
+        position: toast.POSITION.TOP_CENTER
+      });
     }
-    setFormularioValido('');
 
   }
 
