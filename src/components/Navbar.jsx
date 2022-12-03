@@ -1,7 +1,9 @@
 import { Fragment } from 'react'
+import LoginButton from './Login'
+import LogoutButton from './Logout'
+import { useAuth0 } from "@auth0/auth0-react";
 import { Popover, Transition } from '@headlessui/react'
 import {
-  ArrowPathIcon,
   Bars3Icon,
   BookmarkSquareIcon,
   ChartBarIcon,
@@ -26,10 +28,11 @@ const solutions = [
     href: '/registrocita',
     icon: CursorArrowRaysIcon,
   },
-  { 
-    name: 'Servicios',  
+  {
+    name: 'Servicios',
     href: '/servicios',
-    icon: ShieldCheckIcon },
+    icon: ShieldCheckIcon
+  },
   {
     name: 'Productos',
     href: '/productos',
@@ -66,6 +69,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const { isAuthenticated } = useAuth0();
   return (
     <>
       <Popover className="relative bg-white">
@@ -152,7 +156,12 @@ export default function Navbar() {
                 )}
               </Popover>
             </Popover.Group>
-            <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
+
+            {isAuthenticated ?
+              <LogoutButton /> :
+              <LoginButton />
+            }
+            {/* <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
               <Link to='/iniciosesion' className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
                 Iniciar Sesion
               </Link>
@@ -161,7 +170,7 @@ export default function Navbar() {
                 className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
                 Registrarse
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -179,9 +188,9 @@ export default function Navbar() {
               <div className="px-5 pt-5 pb-6">
                 <div className="flex items-center justify-between">
                   <div>
-                  <h4 className="text-3xl font-serif leading-normal mt-0 mb-2 text-stone-800">
-                    VTBeauty Salon
-                  </h4>
+                    <h4 className="text-3xl font-serif leading-normal mt-0 mb-2 text-stone-800">
+                      VTBeauty Salon
+                    </h4>
                   </div>
                   <div className="-mr-2">
                     <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">

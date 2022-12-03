@@ -1,9 +1,7 @@
 import Ayuda from "./pages/Ayuda";
 import Guia from "./pages/Guia";
 import Home from './pages/Home';
-import InicioSesion from "./pages/InicioSesion";
 import Productos from "./pages/Productos";
-import Registrarse from "./pages/Registrarse";
 import RegistroCita from "./pages/RegistroCita";
 import Seguridad from "./pages/Seguridad";
 import Servicios from "./pages/Servicios";
@@ -37,13 +35,4 @@ export default [
         path: '/seguridad',
         page: Seguridad
     },
-    {
-        path: '/iniciosesion',
-        page: InicioSesion
-    },
-    {
-        path: '/registrarse',
-        page: Registrarse
-    },
-
 ]
