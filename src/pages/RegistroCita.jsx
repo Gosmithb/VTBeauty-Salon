@@ -101,8 +101,7 @@ const RegistroCita = () => {
       toast.error("Favor de llenar correctamente todos los campos", {
         position: toast.POSITION.TOP_CENTER
       });
-      setHoraCita([]);
-      setFechaCita([]);
+
     }
 
     if (!nombre.valido) {
