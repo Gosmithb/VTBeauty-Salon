@@ -71,63 +71,38 @@ const RegistroCita = () => {
       // });
 
 
-      // //Limpiar campos despues de actualizar tabla
-      // setNombre({ campo: '', valido: '' });
-      // setApellido({ campo: '', valido: '' });
-      // setServicio({ campo: '', valido: '' });
-      // setFecha({ campo: '', valido: '' });
-      // setHora({ campo: '', valido: '' });
+      
 
-      // const fechaOcupada = fechaCita.includes(fecha.campo);
+      const fechaOcupada = fechaCita.includes(fecha.campo);
       const horaOcupada = horaCita.includes(hora.campo);
 
-      if (!horaOcupada) {
-        setFechaCita([...fechaCita, fecha.campo]);
-        setHoraCita([...horaCita, hora.campo]);
+      setFechaCita([...fechaCita, fecha.campo]);
+      setHoraCita([...horaCita, hora.campo]);
+
+      if (!fechaOcupada) {
         toast.success("Cita creada con exito!", {
           position: toast.POSITION.TOP_CENTER
         });
-      } else {
-        toast.error("Hora ocupada, seleccione una diferente", {
+      }
+      if (fechaOcupada) {
+        toast.error("Fecha ya ocupada, seleccione otra por favor", {
           position: toast.POSITION.TOP_CENTER
         });
+        setHoraCita([]);
+        setFechaCita([]);
       }
 
-      //   console.log(citasCreadas.indexOf({fechaCita: fecha, horaCita: hora}));
-      //   console.log(citasCreadas);
-      //   setCitasCreadas([...citasCreadas,{
-      //     fechaCita: fecha.campo,
-      //     horaCita: hora.campo
-      //   }]);
-
-      // } else {
-      //   console.log(citasCreadas.indexOf({fechaCita: fecha, horaCita: hora}));
-      //   console.log(citasCreadas);
-      //   toast.error("Fecha y hora ya ocupadas", {
-      //     position: toast.POSITION.TOP_CENTER
-      //   });
-      // }
-
-      // citasCreadas.forEach(cita => {
-      //   if (cita.fechaCita === fecha) {
-      //     console.log(fecha);
-      //     toast.error("Fecha ya ocupada, seleccione otra por favor", {
-      //       position: toast.POSITION.TOP_CENTER
-      //     });
-      //   }
-      //   if (cita.horaCita === hora) {
-      //     toast.error("Hora ya ocupada, seleccione otra por favor", {
-      //       position: toast.POSITION.TOP_CENTER
-      //     });
-      //   }
-      // });
-
+      // //Limpiar campos despues de actualizar tabla
+      setNombre({ campo: '', valido: '' });
+      setApellido({ campo: '', valido: '' });
 
 
     } else {
       toast.error("Favor de llenar correctamente todos los campos", {
         position: toast.POSITION.TOP_CENTER
       });
+      setHoraCita([]);
+      setFechaCita([]);
     }
 
     if (!nombre.valido) {
