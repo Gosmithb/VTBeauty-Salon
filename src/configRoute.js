@@ -6,6 +6,7 @@ import RegistroCita from "./pages/RegistroCita";
 import Seguridad from "./pages/Seguridad";
 import Servicios from "./pages/Servicios";
 
+//Mediator 
 export default [
     {
         path: '/',

@@ -103,7 +103,7 @@ export default function Navbar() {
                 Productos
               </Link>
 
-              <Popover className="relative">
+              {/* <Popover className="relative">
                 {({ open }) => (
                   <>
                     <Popover.Button
@@ -154,7 +154,7 @@ export default function Navbar() {
                     </Transition>
                   </>
                 )}
-              </Popover>
+              </Popover> */}
             </Popover.Group>
 
             {isAuthenticated ?

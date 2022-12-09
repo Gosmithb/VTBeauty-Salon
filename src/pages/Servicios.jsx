@@ -10,7 +10,7 @@ const Servicios = () => {
               <div className="mb-12 space-y-4">
                 <h3 className="text-2xl font-semibold text-purple-900">{servicio.title}</h3>
                 <p className="mb-6">{servicio.infoService}</p>
-                <a href="#" className="block font-medium text-purple-600">Mas informacion</a>
+                {/* <a href="#" className="block font-medium text-purple-600">Mas informacion</a> */}
               </div>
               <img src={servicio.imgSrc} className="w-2/3 ml-auto " alt="illustration" loading="lazy" width="900" height="600" />
             </div>

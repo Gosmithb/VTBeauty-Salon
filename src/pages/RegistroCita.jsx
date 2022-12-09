@@ -1,6 +1,6 @@
 import "react-toastify/dist/ReactToastify.css";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from '../firebase/firebase';
+// import { collection, addDoc } from "firebase/firestore";
+// import { db } from '../firebase/firebase';
 import { toast } from 'react-toastify';
 import { useState } from "react";
 import InputComponent from "../components/InputComponent";
@@ -9,9 +9,11 @@ const RegistroCita = () => {
 
   const [nombre, setNombre] = useState({ campo: '', valido: '' });
   const [apellido, setApellido] = useState({ campo: '', valido: '' });
-  const [fecha, setFecha] = useState({ campo: null, valido: '' });
-  const [hora, setHora] = useState({ campo: null, valido: '' });
+  const [fecha, setFecha] = useState({ campo: '', valido: '' });
+  const [hora, setHora] = useState({ campo: '', valido: '' });
   const [servicio, setServicio] = useState({ campo: '', valido: '' });
+  const [fechaCita, setFechaCita] = useState([]);
+  const [horaCita, setHoraCita] = useState([]);
 
   const serviciosDisponibles = [
     'Corte de cabello',
@@ -20,6 +22,21 @@ const RegistroCita = () => {
     'Pedicura'
   ];
 
+  // const obtenerFechaActual = () => {
+  //   let date = new Date()
+
+  //   let day = date.getDate()
+  //   let month = date.getMonth() + 1
+  //   let year = date.getFullYear()
+
+  //   if (month < 10) {
+  //     setFechaActual(`${year}-0${month}-${day}`);
+  //   } else {
+  //     setFechaActual(`${year}-${month}-${day}`);
+
+  //   }
+  // };
+
   const add = serviciosDisponibles.map(add => add);
 
   const handleSetServicio = (e) => {
@@ -27,7 +44,7 @@ const RegistroCita = () => {
   };
 
   const handleSetFecha = (e) => {
-    setFecha({ campo: e.target.value, valido: 'true' });
+    setFecha({ campo: String(e.target.value), valido: 'true' });
   };
 
   const handleSetHora = (e) => {
@@ -37,30 +54,74 @@ const RegistroCita = () => {
   const expresiones = {
     nombre: /^[a-zA-ZÀ-ÿ\s]{4,40}$/, // Letras y espacios, pueden llevar acentos.
   };
-
+  // console.log(citasCreadas);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+
+
     if (nombre.valido === 'true' && apellido.valido === 'true' && servicio.valido === 'true' && fecha.valido === 'true' && hora.valido === 'true') {
-      addDoc(collection(db, 'citas'), {
-        nombre: nombre.campo,
-        apellido: apellido.campo,
-        servicio: servicio.campo,
-        fecha: fecha.campo,
-        hora: hora.campo
-      });
+      // addDoc(collection(db, 'citas'), {
+      //   nombre: nombre.campo,
+      //   apellido: apellido.campo,
+      //   servicio: servicio.campo,
+      //   fecha: fecha.campo,
+      //   hora: hora.campo
+      // });
 
-      //Limpiar campos despues de actualizar tabla
-      setNombre({ campo: '', valido: 'null' });
-      setApellido({ campo: '', valido: 'null' });
-      setServicio({ campo: '', valido: 'null' });
-      setFecha({ campo: '', valido: 'null' });
-      setHora({ campo: '', valido: 'null' });
 
-      toast.success("Cita creada con exito!", {
-        position: toast.POSITION.TOP_CENTER
-      });
+      // //Limpiar campos despues de actualizar tabla
+      // setNombre({ campo: '', valido: '' });
+      // setApellido({ campo: '', valido: '' });
+      // setServicio({ campo: '', valido: '' });
+      // setFecha({ campo: '', valido: '' });
+      // setHora({ campo: '', valido: '' });
+
+      // const fechaOcupada = fechaCita.includes(fecha.campo);
+      const horaOcupada = horaCita.includes(hora.campo);
+
+      if (!horaOcupada) {
+        setFechaCita([...fechaCita, fecha.campo]);
+        setHoraCita([...horaCita, hora.campo]);
+        toast.success("Cita creada con exito!", {
+          position: toast.POSITION.TOP_CENTER
+        });
+      } else {
+        toast.error("Hora ocupada, seleccione una diferente", {
+          position: toast.POSITION.TOP_CENTER
+        });
+      }
+
+      //   console.log(citasCreadas.indexOf({fechaCita: fecha, horaCita: hora}));
+      //   console.log(citasCreadas);
+      //   setCitasCreadas([...citasCreadas,{
+      //     fechaCita: fecha.campo,
+      //     horaCita: hora.campo
+      //   }]);
+
+      // } else {
+      //   console.log(citasCreadas.indexOf({fechaCita: fecha, horaCita: hora}));
+      //   console.log(citasCreadas);
+      //   toast.error("Fecha y hora ya ocupadas", {
+      //     position: toast.POSITION.TOP_CENTER
+      //   });
+      // }
+
+      // citasCreadas.forEach(cita => {
+      //   if (cita.fechaCita === fecha) {
+      //     console.log(fecha);
+      //     toast.error("Fecha ya ocupada, seleccione otra por favor", {
+      //       position: toast.POSITION.TOP_CENTER
+      //     });
+      //   }
+      //   if (cita.horaCita === hora) {
+      //     toast.error("Hora ya ocupada, seleccione otra por favor", {
+      //       position: toast.POSITION.TOP_CENTER
+      //     });
+      //   }
+      // });
+
 
 
     } else {
@@ -68,6 +129,33 @@ const RegistroCita = () => {
         position: toast.POSITION.TOP_CENTER
       });
     }
+
+    if (!nombre.valido) {
+      toast.error("Falta ingresar nombre", {
+        position: toast.POSITION.TOP_CENTER
+      });
+    }
+    if (!apellido.valido) {
+      toast.error("Falta ingresar apellido", {
+        position: toast.POSITION.TOP_CENTER
+      });
+    }
+    if (servicio.valido === false) {
+      toast.error("Favor de elegir un servicio", {
+        position: toast.POSITION.TOP_CENTER
+      });
+    }
+    if (!fecha.valido) {
+      toast.error("Favor de elegir una fecha valida", {
+        position: toast.POSITION.TOP_CENTER
+      });
+    }
+    if (!hora.valido) {
+      toast.error("Favor de elegir una hora", {
+        position: toast.POSITION.TOP_CENTER
+      });
+    }
+
 
   }
 
@@ -150,6 +238,7 @@ const RegistroCita = () => {
                 </label>
                 <input
                   onChange={(e) => handleSetFecha(e)}
+                  min="2022-12-09"
                   type="date"
                   name="date"
                   id="date"
@@ -166,6 +255,8 @@ const RegistroCita = () => {
                 </label>
                 <input
                   onMouseOut={(e) => handleSetHora(e)}
+                  min="07:00"
+                  max="05:00"
                   type="time"
                   name="time"
                   id="time"

@@ -1,5 +1,6 @@
 import { faCircleCheck, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 
+//Tactica validacion campos
 const InputComponent = ({ estado, setEstado, tipo, placeholder, name, leyendaError, expresionRegular, funcion, classProps }) => {
     const handlesetEstado = (e) => {
         setEstado({ ...estado, campo: e.target.value });
