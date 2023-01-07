@@ -152,7 +152,7 @@ const RegistroCita = () => {
                   tipo="text"
                   placeholder="Nombre"
                   name="nombre"
-                  leyendaError="Solo debe contener letras y espacio"
+                  leyendaError="Solo debe contener letras y espacio, de 4 a 40 letras"
                   expresionRegular={expresiones.nombre}
                   classProps="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
 
@@ -173,7 +173,7 @@ const RegistroCita = () => {
                   tipo="text"
                   placeholder="Apellido"
                   name="apellido"
-                  leyendaError="Solo debe contener letras y espacio"
+                  leyendaError="Solo debe contener letras y espacio, de 4 a 40 letras"
                   expresionRegular={expresiones.nombre}
                   classProps="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
 
